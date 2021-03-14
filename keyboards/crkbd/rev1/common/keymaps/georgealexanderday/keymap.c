@@ -54,9 +54,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //,-----------------------------------------------------.                    ,-----------------------------------------------------.
        KC_NO,  KC_NO,   KC_PERC, KC_LCBR, KC_RCBR,  KC_NO,                         KC_NO, KC_AMPR, KC_PIPE, KC_HASH,  KC_GRV, KC_DELETE,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-      KC_NO, KC_TILD, KC_BSLS, KC_LPRN, KC_RPRN, KC_CIRC,                      KC_DLR, KC_MINS,   KC_COLN, KC_UNDS, KC_EQL, KC_NO,
+      KC_NO, LSFT_T(KC_TILD), KC_BSLS, KC_LPRN, KC_RPRN, KC_CIRC,                      KC_DLR, KC_MINS,   KC_COLN, KC_UNDS, KC_EQL, KC_NO,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-      KC_NO, KC_NO, LSA, KC_LBRC, KC_RBRC, KC_NO,                              PIPE, KC_EXLM, KC_AT, RSA, RDA, KC_NO,
+      KC_NO, KC_LCTRL, LSA, KC_LBRC, KC_RBRC, KC_NO,                              PIPE, KC_EXLM, KC_AT, RSA, RDA, KC_NO,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
                                           KC_NO, _______,  KC_NO,     KC_NO, MO(3), KC_NO
                                       //`--------------------------'  `--------------------------'
@@ -66,9 +66,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //,-----------------------------------------------------.                    ,-----------------------------------------------------.
       KC_NO, KC_SLSH,   KC_7, KC_8,  KC_9, KC_ASTR,                              KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-      KC_NO, KC_MINS, KC_4, KC_5, KC_6, KC_PLUS,                                 KC_NO,  KC_LEFT, KC_DOWN, KC_UP, KC_RGHT,  KC_NO ,
+      KC_NO, LSFT_T(KC_MINS), KC_4, KC_5, KC_6, KC_PLUS,                                 KC_NO,  KC_LEFT, KC_DOWN, KC_UP, KC_RGHT,  KC_NO ,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-      KC_NO, KC_EQL, KC_1, KC_2, KC_3, KC_0,                                     KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,
+      KC_NO, LCTL_T(KC_EQL), KC_1, KC_2, KC_3, KC_0,                                     KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
                                           KC_NO, MO(3),  KC_NO,     KC_NO, _______, KC_NO
                                       //`--------------------------'  `--------------------------'
