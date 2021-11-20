@@ -74,13 +74,13 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   ),
   [_MOUSE] = LAYOUT_split_3x6_3(
   //,-----------------------------------------------------.                    ,-----------------------------------------------------.
-      KC_NO, KC_NO,   KC_NO, KC_NO,  KC_NO, KC_NO,                              KC_NO, KC_PASTE, KC_COPY, KC_CUT, KC_NO, KC_NO,
+      KC_NO, KC_NO,   KC_NO, KC_MS_U,  KC_NO, KC_NO,                              KC_NO, KC_PASTE, KC_COPY, KC_CUT, KC_NO, KC_NO,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-      KC_NO, KC_NO,   KC_NO, KC_NO,  KC_NO, KC_NO,                              KC_NO, KC_MS_L, KC_MS_D, KC_MS_U , KC_MS_R, KC_NO,
+      KC_NO, KC_NO,   KC_MS_L, KC_MS_D,  KC_MS_R, KC_NO,                              KC_NO, KC_BTN1, KC_BTN2, KC_BTN3 , KC_NO, KC_NO,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
       KC_NO, KC_NO,   KC_NO, KC_NO,  KC_NO, KC_NO,                              KC_NO, KC_WH_L, KC_WH_D, KC_WH_U , KC_WH_R, KC_NO,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
-        KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,                 KC_BTN1, KC_BTN2, KC_BTN3
+        KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,                 KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT
                                       //`--------------------------'  `--------------------------'
   ),
 
