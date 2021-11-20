@@ -25,6 +25,7 @@ enum layers {
     _BASE,
     _LOWER,
     _RAISE,
+    _MOUSE,
 };
 
 enum custom_keycodes {
@@ -41,9 +42,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
       KC_ESC, LSFT_T(KC_A), KC_R,    KC_S,    KC_T,    KC_G,                      KC_M,    KC_N,    KC_E,    KC_I, LSFT_T(KC_O) , KC_QUOT,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-      KC_NO, LCTL_T(KC_Z),  KC_X,    KC_C,    KC_D,    KC_V,                     KC_K,    KC_H, KC_COMM,  KC_DOT, LCTL_T(KC_SLSH),  KC_NO,
+      KC_LGUI, LCTL_T(KC_Z),  KC_X,    KC_C,    KC_D,    KC_V,                     KC_K,    KC_H, KC_COMM,  KC_DOT, LCTL_T(KC_SLSH),  KC_LALT,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
-                            KC_HYPR, LGUI_T(KC_TAB),  LT(1, KC_SPC),   LT(2, KC_BSPC), LALT_T(KC_ENTER), KC_MEH
+                            KC_HYPR, LT(3, KC_TAB),  LT(1, KC_SPC),   LT(2, KC_BSPC), KC_ENTER, KC_MEH
                                       //`--------------------------'  `--------------------------'
 
   ),
@@ -70,7 +71,19 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
         KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,                 KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT
                                       //`--------------------------'  `--------------------------'
-  )
+  ),
+  [_MOUSE] = LAYOUT_split_3x6_3(
+  //,-----------------------------------------------------.                    ,-----------------------------------------------------.
+      KC_NO, KC_NO,   KC_NO, KC_NO,  KC_NO, KC_NO,                              KC_NO, KC_PASTE, KC_COPY, KC_CUT, KC_NO, KC_NO,
+  //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
+      KC_NO, KC_NO,   KC_NO, KC_NO,  KC_NO, KC_NO,                              KC_NO, KC_MS_L, KC_MS_D, KC_MS_U , KC_MS_R, KC_NO,
+  //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
+      KC_NO, KC_NO,   KC_NO, KC_NO,  KC_NO, KC_NO,                              KC_NO, KC_WH_L, KC_WH_D, KC_WH_U , KC_WH_R, KC_NO,
+  //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
+        KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,                 KC_BTN1, KC_BTN2, KC_BTN3
+                                      //`--------------------------'  `--------------------------'
+  ),
+
 };
 
 
@@ -85,8 +98,7 @@ oled_rotation_t oled_init_user(oled_rotation_t rotation) {
 #define L_BASE 0
 #define L_LOWER 2
 #define L_RAISE 4
-#define L_ADJUST 8
-#define L_GAMING 16
+#define L_MOUSE 8
 
 void oled_render_layer_state(void) {
     oled_write_P(PSTR("Layer: "), false);
@@ -100,12 +112,9 @@ void oled_render_layer_state(void) {
         case L_RAISE:
             oled_write_ln_P(PSTR("Raise"), false);
             break;
-        case L_ADJUST:
-        case L_ADJUST|L_LOWER:
-        case L_ADJUST|L_RAISE:
-        case L_ADJUST|L_LOWER|L_RAISE:
-            oled_write_ln_P(PSTR("Adjust"), false);
-            break;
+        case L_MOUSE:
+            oled_write_ln_P(PSTR("Mouse"), false);
+
     }
 }
 
@@ -176,6 +185,9 @@ static void render_status(void) {
             break;
         case _RAISE:
             oled_write_P(PSTR("Raise         "), false);
+            break;
+        case _MOUSE:
+            oled_write_P(PSTR("Mouse         "), false);
             break;
         default:
             oled_write_ln_P(PSTR("FUCKED        "), false);
